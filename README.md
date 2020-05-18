@@ -47,12 +47,13 @@
 ## 操作说明
 
 - 输入数据时间戳为毫秒，发生在第 0~1 秒之间的监控数据，属于第 0 秒监控
+- 登录 https://kcode-git.kuaishou.com/ 可以看到自己的参赛项目(项目名称为 team_xxxxx)
 - 克隆本项目(https://kcode-git.kuaishou.com/kcode/kcode-warm-up)之后，关注 4 个文件：
     - KcodeQuestion
     - KcodeMain
     - pom.xml
     - .gitignore
-- 将上述 4 个文件拷贝到自己的参赛 git 项目中，例如，kcode_team_xxxxxxx
+- 将上述 4 个文件拷贝到自己的参赛 git 项目中，例如，team_xxxxx
 - pom.xml 中指定了打包插件(无需修改)
 - KcodeQuestion 中需要选手实现两个 prepare() 和 getResult() 两个方法，其中
     - prepare() 方法用来接受输入数据集
