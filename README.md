@@ -71,9 +71,11 @@
 - GC collector : 
 - jvm内存设置：-Xms4g -Xmx4g
 - 评测机器硬件信息（docker）：
-```html
- 带补充
-```
+    - 操作系统 CentOS 7.3 64位
+    - CPU	16核
+    - 内存	32GB
+    - 机型：腾讯云CVM 计算型C3
+    
    
 ## 评测标准&排名
 - 系统会默认拉取每个参赛队伍git项目的master代码作为评测程序执行
