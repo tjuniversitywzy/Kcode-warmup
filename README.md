@@ -47,7 +47,7 @@
 ## 操作说明
 
 - 输入数据时间戳为毫秒，发生在第 0~1 秒之间的监控数据，属于第 0 秒监控
-- 克隆本项目 (https://kcode-git.kuaishou.com/kcode/kcode-warm-up) 之后，关注 4 个文件：
+- 克隆本项目(https://kcode-git.kuaishou.com/kcode/kcode-warm-up)之后，关注 4 个文件：
     - KcodeQuestion
     - KcodeMain
     - pom.xml
