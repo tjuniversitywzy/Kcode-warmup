@@ -83,4 +83,21 @@
 - 执行查询结果需要全部正确，否则视为评测不通过
 
 ## 参考项目
-https://kcode-git.kuaishou.com/kcode/kcode-demo
+https://kcode-git.kuaishou.com/kcode/kcode-warm-up
+
+## 本地测试数据集
+
+为方便下载，将数据集切分为 8 个 100 MB的文件：
+
+http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z01
+http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z02
+http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z03
+http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z04
+http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z05
+http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z06
+http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z07
+http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.zip
+
+测试数据集对应的结果：
+
+http://static.yximgs.com/kos/nlav10305/warmup-test/result-test.data
