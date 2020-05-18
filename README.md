@@ -47,6 +47,7 @@
 ## 操作说明
 
 - 输入数据时间戳为毫秒，发生在第 0~1 秒之间的监控数据，属于第 0 秒监控
+- 报名成功之后，参赛 git 信息会以短信形式发送给选手
 - 登录 https://kcode-git.kuaishou.com/ 可以看到自己的参赛项目(项目名称为 team_xxxxx)
 - 克隆本项目(https://kcode-git.kuaishou.com/kcode/kcode-warm-up)之后，关注 4 个文件：
     - KcodeQuestion
