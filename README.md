@@ -45,7 +45,6 @@
 ```
 
 ## 操作说明
-
 - 输入数据时间戳为毫秒，发生在第 0~1 秒之间的监控数据，属于第 0 秒监控
 - 报名成功之后，参赛 git 信息会以短信形式发送给选手
 - 登录 https://kcode-git.kuaishou.com/ 可以看到自己的参赛项目(项目名称为 team_xxxxx)
@@ -74,30 +73,8 @@
 - jvm内存设置：-Xms4g -Xmx4g
 - 评测机器硬件信息（docker）：
     - 操作系统 CentOS 7.3 64位
-    - CPU  16核 3.00GHz
-    - 内存  32GB
-    - 机型  腾讯云CVM 计算型C3
-```html
-$ ulimit -a
-core file size          (blocks, -c) unlimited
-data seg size           (kbytes, -d) unlimited
-scheduling priority             (-e) 0
-file size               (blocks, -f) unlimited
-pending signals                 (-i) 1290490
-max locked memory       (kbytes, -l) unlimited
-max memory size         (kbytes, -m) unlimited
-open files                      (-n) 204800
-pipe size            (512 bytes, -p) 8
-POSIX message queues     (bytes, -q) 819200
-real-time priority              (-r) 0
-stack size              (kbytes, -s) 10240
-cpu time               (seconds, -t) unlimited
-max user processes              (-u) 102400
-virtual memory          (kbytes, -v) unlimited
-file locks                      (-x) unlimited
-```
- 
-   
+    - CPU	16核 3.00GHz
+  
 ## 评测标准&排名
 - 系统会默认拉取每个参赛队伍git项目的master代码作为评测程序执行
 - 输入数据总条数为 N，接收打点数据的接口总耗时为 T1
@@ -105,8 +82,6 @@ file locks                      (-x) unlimited
 - 以 T1 + T2 和为成绩，时间越短成绩越好
 - 执行查询结果需要全部正确，否则视为评测不通过
 
-## 参考项目
-https://kcode-git.kuaishou.com/kcode/kcode-warm-up
 
 ## 本地测试数据集
 
@@ -124,3 +99,6 @@ http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.zip
 测试数据集对应的结果：
 
 http://static.yximgs.com/kos/nlav10305/warmup-test/result-test.data
+
+## 代码提交
+需要将自己完成的代码push到  https://kcode-git.kuaishou.com/kcode/team_xxxx 项目下的master分支（team_xxxx是短信中收到的项目名称）
