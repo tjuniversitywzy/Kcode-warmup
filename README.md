@@ -69,15 +69,34 @@
 - 上传与题目无关的代码视为作弊，视为作弊，无成绩
 
 ## 评测环境&启动参数
-- JDK 版本： xxxx
-- GC collector : 
+- JDK 版本： 1.8
+- GC collector : -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xss256k -Xms4G -Xmx4G
 - jvm内存设置：-Xms4g -Xmx4g
 - 评测机器硬件信息（docker）：
     - 操作系统 CentOS 7.3 64位
     - CPU	16核
     - 内存	32GB
     - 机型：腾讯云CVM 计算型C3
-    
+```html
+$ ulimit -a
+core file size          (blocks, -c) unlimited
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 1290490
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 204800
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 10240
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 102400
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+```
+ 
    
 ## 评测标准&排名
 - 系统会默认拉取每个参赛队伍git项目的master代码作为评测程序执行
