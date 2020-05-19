@@ -74,9 +74,9 @@
 - jvm内存设置：-Xms4g -Xmx4g
 - 评测机器硬件信息（docker）：
     - 操作系统 CentOS 7.3 64位
-    - CPU	16核
-    - 内存	32GB
-    - 机型：腾讯云CVM 计算型C3
+    - CPU  16核 3.00GHz
+    - 内存  32GB
+    - 机型  腾讯云CVM 计算型C3
 ```html
 $ ulimit -a
 core file size          (blocks, -c) unlimited
