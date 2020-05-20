@@ -86,7 +86,7 @@
 
 ## 本地测试数据集
 
-为方便下载，将数据集切分为 8 个 100 MB的文件：
+为方便下载，将数据集切分为 8 个 100 MB的文件(需要全部下载，才能正常解压)：
 
 http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z01
 http://static.yximgs.com/kos/nlav10305/warmup-test/warmup-test.data.z02
