@@ -59,8 +59,8 @@
 - 报名成功之后，参赛 git 信息会以短信形式发送给选手
 - 登录 https://kcode-git.kuaishou.com/ 可以看到自己的参赛项目(项目名称为 team_xxxxx)
 - 克隆本项目(https://kcode-git.kuaishou.com/kcode/kcode-warm-up)之后，关注 4 个文件：
-    - KcodeQuestion
-    - KcodeMain
+    - com.kuaishou.kcode.KcodeQuestion
+    - com.kuaishou.kcode.KcodeMain
     - pom.xml
     - .gitignore
 - 将上述 4 个文件拷贝到自己的参赛 git 项目中，例如，team_xxxxx
@@ -69,6 +69,7 @@
     - prepare() 方法用来接受输入数据集
     - getResult() 方法是由kcode评测系统调用，是评测程序正确性的一部分，请按照题目要求返回正确数据
 - KcodeMain 用于选手本地测试，在参赛项目中无需提交
+- **相关的实现必须在 package com.kuaishou.kcode 下面，否则评测程序会发现不了你实现**
 
 ## 要求和限制
 - 题目语言限定为 Java 
