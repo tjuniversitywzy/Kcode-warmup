@@ -124,12 +124,11 @@ http://static.yximgs.com/kos/nlav10305/warmup-test/result-test.data
 
   有部分队伍提交代码的目录格式错误，导致评测失败，例如：
 
-  ![image-20200523161552107](https://kcode-git.kuaishou.com/kcode/img/image-20200523161552107.png)
+  <img src="http://static.yximgs.com/kos/nlav10305/warmup-test/image-20200523161552107.png" alt="image-20200411113159132" style="zoom:100%;" />
 
   正确的目录结果如下：
 
-  ![image-20200523161849751](https://kcode-git.kuaishou.com/kcode/img/image-20200523161849751.png)
-
+  <img src="http://static.yximgs.com/kos/nlav10305/warmup-test/image-20200523161849751.png" alt="image-20200411113159132" style="zoom:500%;" />
 
 
 - **问题3、构造方法问题：**
