@@ -113,3 +113,40 @@ http://static.yximgs.com/kos/nlav10305/warmup-test/result-test.data
 
 ## 代码提交
 需要将自己完成的代码push到  https://kcode-git.kuaishou.com/kcode/team_xxxx 项目下的master分支（team_xxxx是短信中收到的项目名称）
+
+## 评测问题说明
+
+- **问题1、代码分支错误：**
+
+  有部分队伍未将代码 push 到 master 分支，导致拉取不到代码，编译失败。
+
+- **问题2、目录错误：**
+
+  有部分队伍提交代码的目录格式错误，导致评测失败，例如：
+
+  ![image-20200523161552107](https://kcode-git.kuaishou.com/kcode/img/image-20200523161552107.png)
+
+  正确的目录结果如下：
+
+  ![image-20200523161849751](https://kcode-git.kuaishou.com/kcode/img/image-20200523161849751.png)
+
+
+
+- **问题3、构造方法问题：**
+
+  有部分队伍将代码中的 KcodeQuestion 类的构造方法设置成非 public 导致评测失败。
+
+- **问题4、代码逻辑问题：**
+
+  有部分队伍的代码存在问题，例如：
+
+  - 出现死循环，导致评测超时
+  - 出现 NullPointerException 异常，导致测评失败
+
+- **问题5、返回数据格式问题**：
+
+  有部分队伍的返回结果中携带多余空格或是错误的逗号分隔符，导致测评失败
+
+  需要返回值收尾无空格，且返回的QPS,P99,P50,AVG,MAX数据之间由英文逗号分隔且无空格。
+
+
