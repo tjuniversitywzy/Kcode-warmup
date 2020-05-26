@@ -1,8 +1,12 @@
 package com.kuaishou.kcode;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author kcode
@@ -17,14 +21,22 @@ public class KcodeMain {
         Object instance = clazz.newInstance();
         Method prepareMethod = clazz.getMethod("prepare", InputStream.class);
         Method getResultMethod = clazz.getMethod("getResult", Long.class, String.class);
-        // 准备数据
+        // 调用prepare()方法准备数据
         prepareMethod.invoke(instance, fileInputStream);
+
         // 验证正确性
-        Object result = getResultMethod.invoke(instance, new Long(1L), "methodName");
-        if ("result".equals(result)) {
-            System.out.println("success");
-        } else {
-            System.out.println("fail");
+        // "result.data" 是你从网盘上下载的结果数据，这里直接填你的本地绝对路径
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("result.data")));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] split = line.split("\\|");
+            String[] keys = split[0].split(",");
+            // 调用getResult()方法
+            Object result = getResultMethod.invoke(instance, new Long(keys[0]), keys[1]);
+            if (!split[1].equals(result)) {
+                System.out.println("fail");
+            }
+            // System.out.println("success");
         }
     }
 }
