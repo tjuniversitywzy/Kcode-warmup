@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
@@ -55,50 +56,46 @@ public class KcodeQuestion {
             e.printStackTrace();
         }
     }
+
     //用于计算上一秒的结果
     //将上一秒的结果封装到map
     public void calPreSecond(ArrayDeque<String> stack,Stack<String> timeStack){
-        HashMap<String, PriorityQueue<String[]>> map = new HashMap<>();
+        HashMap<String, ArrayList<Node>> map = new HashMap<>();
         while (!stack.isEmpty()){//执行建堆过程
             //弹出每一个字符串进行处理
             String pop = stack.pop();
             String[] split = pop.split(",");
+            Node node = new Node(split[0], split[1], Integer.parseInt(split[2]));
             if (map.containsKey(split[1])){
-                PriorityQueue<String[]> priorityQueue = map.get(split[1]);//获取该队列
-                priorityQueue.offer(new String[]{split[0],split[2]});
+                ArrayList<Node> list = map.get(split[1]);//获取该队列
+                list.add(node);
             }else {
-                PriorityQueue<String[]> priorityQueue = new PriorityQueue<>(new Comparator<String[]>() {
-                    @Override
-                    public int compare(String[] o1, String[] o2) {
-                        return Integer.parseInt(o2[1]) - Integer.parseInt(o1[1]);//大顶堆
-                    }
-                });
-                priorityQueue.offer(new String[]{split[0],split[2]});
-                map.put(split[1],priorityQueue);
+                ArrayList<Node> list = new ArrayList<>();
+                list.add(node);
+                map.put(split[1],list);
             }
         }
+
         Set<String> strings = map.keySet();
         for (String str : strings){
-            PriorityQueue<String[]> priorityQueue = map.get(str);//当前方法名称的队列，对其进行计算
-            int size = priorityQueue.size();
+            ArrayList<Node> list = map.get(str);//当前方法名称的队列，对其进行计算
+            list.sort(new Comparator<Node>() {
+                @Override
+                public int compare(Node o1, Node o2) {
+                    return o1.timeLoop - o2.timeLoop;
+                }
+            });
+            int size = list.size();
             double sum = 0;
-            int index = size;//用于计算P系列指标
+            for (Node node : list){
+                sum = sum + node.timeLoop;
+            }
             int p99 = (int)Math.ceil(size * 0.99);
             int p50 = (int)Math.ceil(size * 0.5);
-            String p99Result = "";
-            String p50Result = "";
-            String MAX = "";
-            String AVG = "";
-            int qps = size;
-            while (!priorityQueue.isEmpty()){
-                String s = priorityQueue.poll()[1];
-                if (index == size) MAX = s;
-                if (index == p99) p99Result = s;
-                if (index == p50) p50Result = s;
-                sum = sum + Long.parseLong(s);
-                index--;
-            }
-            AVG = String.valueOf((int) Math.ceil(sum/size));
+            int p99Result = list.get(p99-1).timeLoop;
+            int p50Result = list.get(p50-1).timeLoop;
+            int MAX = list.get(size-1).timeLoop;
+            int AVG = (int) Math.ceil(sum/size);
             HashMap<String, String> stringStringHashMap = null;
             if (!res.containsKey(str)){
                 stringStringHashMap = new HashMap<String, String>(4200);
@@ -106,7 +103,7 @@ public class KcodeQuestion {
             }else {
                 stringStringHashMap = res.get(str);
             }
-            stringStringHashMap.put(timeStack.peek(),qps+","+p99Result.concat(",").concat(p50Result).concat(",").concat(AVG).concat(",").concat(MAX));
+            stringStringHashMap.put(timeStack.peek(), size +","+p99Result+(",")+p50Result+","+AVG+","+MAX);
             res.put(str,stringStringHashMap);
         }
     }
@@ -122,5 +119,17 @@ public class KcodeQuestion {
     public String getResult(Long timestamp, String methodName) {
         // do something
         return res.get(methodName).get(String.valueOf(timestamp).substring(1));
+    }
+}
+//使用对象
+class Node{
+    String timeStamp;
+    String methodName;
+    int timeLoop;
+
+    public Node(String timeStamp, String methodName, int timeLoop) {
+        this.timeStamp = timeStamp;
+        this.methodName = methodName;
+        this.timeLoop = timeLoop;
     }
 }
